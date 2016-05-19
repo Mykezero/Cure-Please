@@ -10,8 +10,6 @@ using CurePlease.Properties;
 
 namespace CurePlease
 {
-
-    using FFACETools;
     public partial class Form1 : Form
     {
         
@@ -3284,10 +3282,133 @@ namespace CurePlease
             return plStatusCheck(StatusEffect.Medicine);
         }
         #endregion      
+    }
 
-        
+    public enum AbilityList
+    {
+        Divine_Seal
+    }
 
-        
+    public enum Status
+    {
+    }
 
+    public enum LoginStatus
+    {
+        Loading,
+        LoggedIn
+    }
+
+    internal enum SpellList
+    {
+        Protectra,
+        Protectra_II,
+        Protectra_III,
+        Protectra_IV,
+        Protectra_V,
+        Shellra,
+        Shellra_II,
+        Shellra_III,
+        Shellra_IV,
+        Shellra_V,
+        Cure_VI,
+        Cure_V,
+        Cure_IV,
+        Cure_III,
+        Cure_II,
+        Cure
+    }
+
+    public enum StatusEffect
+    {
+        Medicine,
+        Weakness
+    }
+
+    public class FFACE
+    {
+        private int selectedItem;
+        public NPCTools NPC { get; set; }
+
+        public FFACE(int selectedItem)
+        {
+            this.selectedItem = selectedItem;
+        }
+
+        public PlayerTools Player { get; set; }
+        public TimerTools Timer { get; set; }
+        public Dictionary<byte, PartyMemberTools> PartyMember { get; set; }
+        public ItemTools Item { get; set; }
+        public WindowerTools Windower { get; set; }
+
+        public class TimerTools
+        {
+            internal int GetSpellRecast(SpellList protectra)
+            {
+                throw new NotImplementedException();
+            }
+
+            public int GetAbilityRecast(AbilityList abilityList)
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public class PlayerTools
+        {
+            public int MPCurrent { get; set; }
+            public int ID { get; set; }
+            public int MPPCurrent { get; set; }
+            public string Name { get; set; }
+            public Zone Zone { get; set; }
+            public LoginStatus GetLoginStatus { get; set; }
+            public float PosX { get; set; }
+            public float PosY { get; set; }
+            public float PosZ { get; set; }
+            public Status Status { get; set; }
+            public IEnumerable<StatusEffect> StatusEffects { get; set; }
+        }
+    }
+
+    public class NPCTools
+    {
+        public float Distance(int id)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class WindowerTools
+    {
+        public void SendString(string p0)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class ItemTools
+    {
+        public int SelectedItemID { get; set; }
+        public string SelectedItemName { get; set; }
+        public int TemporaryCount { get; set; }
+
+        public int GetTempItemIDByIndex(byte p0)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public enum Zone
+    {
+    }
+
+    public class PartyMemberTools
+    {
+        public int HPPCurrent;
+        public int HPCurrent;
+        public int ID;
+        public bool Active { get; set; }
+        public Zone Zone { get; set; }
+        public string Name { get; set; }
     }
 }
