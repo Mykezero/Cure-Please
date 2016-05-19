@@ -12,19 +12,19 @@ namespace CurePlease
 {
     public partial class Form1 : Form
     {
-        
+
         public static FFACE _FFACEPL;
-        public FFACE _FFACEMonitored;        
+        public FFACE _FFACEMonitored;
         public ListBox processids = new ListBox();
         // Stores the previously-colored button, if any        
-        
+
         float plX;
         float plY;
         float plZ;
 
         byte playerOptionsSelected;
         byte autoOptionsSelected;
-        
+
 
         bool castingLock = false;
         bool pauseActions = false;
@@ -33,7 +33,7 @@ namespace CurePlease
         //private Dictionary<int, string> PTMemberList;
 
         #region "== Auto Casting bool"
-        bool[] autoHasteEnabled = new bool[]         
+        bool[] autoHasteEnabled = new bool[]
         {
             false,
             false,
@@ -55,7 +55,7 @@ namespace CurePlease
             false
         };
 
-        bool[] autoHaste_IIEnabled = new bool[]         
+        bool[] autoHaste_IIEnabled = new bool[]
         {
             false,
             false,
@@ -77,7 +77,7 @@ namespace CurePlease
             false
         };
 
-        bool[] autoFlurryEnabled = new bool[]         
+        bool[] autoFlurryEnabled = new bool[]
         {
             false,
             false,
@@ -99,7 +99,7 @@ namespace CurePlease
             false
         };
 
-        bool[] autoFlurry_IIEnabled = new bool[]         
+        bool[] autoFlurry_IIEnabled = new bool[]
         {
             false,
             false,
@@ -121,8 +121,8 @@ namespace CurePlease
             false
         };
 
-       bool[] autoPhalanx_IIEnabled = new bool[]
-        {
+        bool[] autoPhalanx_IIEnabled = new bool[]
+         {
             false,
             false,
             false,
@@ -140,8 +140,8 @@ namespace CurePlease
             false,
             false,
             false,
-            false                        
-        };
+            false
+         };
 
         bool[] autoRegen_IVEnabled = new bool[]
         {
@@ -162,7 +162,7 @@ namespace CurePlease
             false,
             false,
             false,
-            false            
+            false
         };
 
         bool[] autoRegen_VEnabled = new bool[]
@@ -184,7 +184,7 @@ namespace CurePlease
             false,
             false,
             false,
-            false            
+            false
         };
 
         bool[] autoShell_IVEnabled = new bool[]
@@ -275,7 +275,7 @@ namespace CurePlease
             false
         };
 
-        
+
 
         bool[] autoRefreshEnabled = new bool[]
         {
@@ -296,7 +296,7 @@ namespace CurePlease
             false,
             false,
             false,
-            false                        
+            false
         };
 
         bool[] autoRefresh_IIEnabled = new bool[]
@@ -318,7 +318,7 @@ namespace CurePlease
             false,
             false,
             false,
-            false                        
+            false
         };
         #endregion
 
@@ -499,7 +499,7 @@ namespace CurePlease
             new DateTime(1970, 1, 1, 0, 0, 0),
             new DateTime(1970, 1, 1, 0, 0, 0)
         };
-                
+
         DateTime[] playerPhalanx_II = new DateTime[]
         {
             new DateTime(1970, 1, 1, 0, 0, 0),
@@ -507,18 +507,18 @@ namespace CurePlease
             new DateTime(1970, 1, 1, 0, 0, 0),
             new DateTime(1970, 1, 1, 0, 0, 0),
             new DateTime(1970, 1, 1, 0, 0, 0),
-            new DateTime(1970, 1, 1, 0, 0, 0)                      
+            new DateTime(1970, 1, 1, 0, 0, 0)
         };
 
-       DateTime[] playerRegen_IV = new DateTime[]
-        {
+        DateTime[] playerRegen_IV = new DateTime[]
+         {
             new DateTime(1970, 1, 1, 0, 0, 0),
             new DateTime(1970, 1, 1, 0, 0, 0),
             new DateTime(1970, 1, 1, 0, 0, 0),
             new DateTime(1970, 1, 1, 0, 0, 0),
             new DateTime(1970, 1, 1, 0, 0, 0),
-            new DateTime(1970, 1, 1, 0, 0, 0)                        
-        };
+            new DateTime(1970, 1, 1, 0, 0, 0)
+         };
 
         DateTime[] playerRegen_V = new DateTime[]
         {
@@ -527,7 +527,7 @@ namespace CurePlease
             new DateTime(1970, 1, 1, 0, 0, 0),
             new DateTime(1970, 1, 1, 0, 0, 0),
             new DateTime(1970, 1, 1, 0, 0, 0),
-            new DateTime(1970, 1, 1, 0, 0, 0)                        
+            new DateTime(1970, 1, 1, 0, 0, 0)
         };
 
         DateTime[] playerRefresh = new DateTime[]
@@ -537,7 +537,7 @@ namespace CurePlease
             new DateTime(1970, 1, 1, 0, 0, 0),
             new DateTime(1970, 1, 1, 0, 0, 0),
             new DateTime(1970, 1, 1, 0, 0, 0),
-            new DateTime(1970, 1, 1, 0, 0, 0)                        
+            new DateTime(1970, 1, 1, 0, 0, 0)
         };
 
         DateTime[] playerRefresh_II = new DateTime[]
@@ -547,7 +547,7 @@ namespace CurePlease
             new DateTime(1970, 1, 1, 0, 0, 0),
             new DateTime(1970, 1, 1, 0, 0, 0),
             new DateTime(1970, 1, 1, 0, 0, 0),
-            new DateTime(1970, 1, 1, 0, 0, 0)                        
+            new DateTime(1970, 1, 1, 0, 0, 0)
         };
         #endregion
 
@@ -727,7 +727,7 @@ namespace CurePlease
             new TimeSpan(),
             new TimeSpan()
         };
-                        
+
         TimeSpan[] playerPhalanx_IISpan = new TimeSpan[]
         {
             new TimeSpan(),
@@ -735,7 +735,7 @@ namespace CurePlease
             new TimeSpan(),
             new TimeSpan(),
             new TimeSpan(),
-            new TimeSpan()                       
+            new TimeSpan()
         };
 
         TimeSpan[] playerRegen_IVSpan = new TimeSpan[]
@@ -745,7 +745,7 @@ namespace CurePlease
             new TimeSpan(),
             new TimeSpan(),
             new TimeSpan(),
-            new TimeSpan()                       
+            new TimeSpan()
         };
 
         TimeSpan[] playerRegen_VSpan = new TimeSpan[]
@@ -755,7 +755,7 @@ namespace CurePlease
             new TimeSpan(),
             new TimeSpan(),
             new TimeSpan(),
-            new TimeSpan()                       
+            new TimeSpan()
         };
 
         TimeSpan[] playerRefreshSpan = new TimeSpan[]
@@ -765,7 +765,7 @@ namespace CurePlease
             new TimeSpan(),
             new TimeSpan(),
             new TimeSpan(),
-            new TimeSpan()                       
+            new TimeSpan()
         };
 
         TimeSpan[] playerRefresh_IISpan = new TimeSpan[]
@@ -775,7 +775,7 @@ namespace CurePlease
             new TimeSpan(),
             new TimeSpan(),
             new TimeSpan(),
-            new TimeSpan()                       
+            new TimeSpan()
         };
         #endregion
 
@@ -784,11 +784,11 @@ namespace CurePlease
         public Form1()
         {
             InitializeComponent();
-            Process[] pol = Process.GetProcessesByName("pol");            
+            Process[] pol = Process.GetProcessesByName("pol");
 
             if (pol.Length < 1)
             {
-                MessageBox.Show("FFXI not found");                
+                MessageBox.Show("FFXI not found");
             }
             else
             {
@@ -801,7 +801,7 @@ namespace CurePlease
                 POLID.SelectedIndex = 0;
                 POLID2.SelectedIndex = 0;
                 processids.SelectedIndex = 0;
-            }            
+            }
         }
 
         private void setinstance_Click(object sender, EventArgs e)
@@ -863,7 +863,7 @@ namespace CurePlease
             }
             return false;
         }
-        
+
         private void partyMembersUpdate_Tick(object sender, EventArgs e)
         {
             if (_FFACEPL == null || _FFACEMonitored == null)
@@ -871,22 +871,22 @@ namespace CurePlease
                 return;
             }
 
-            if (_FFACEPL.Player.GetLoginStatus == LoginStatus.Loading || _FFACEMonitored.Player.GetLoginStatus == LoginStatus.Loading)                
+            if (_FFACEPL.Player.GetLoginStatus == LoginStatus.Loading || _FFACEMonitored.Player.GetLoginStatus == LoginStatus.Loading)
             {
                 // We zoned out so wait 15 seconds before continuing any type of action
-                Thread.Sleep(15000);                 
+                Thread.Sleep(15000);
             }
 
             if (_FFACEPL.Player.GetLoginStatus != LoginStatus.LoggedIn || _FFACEMonitored.Player.GetLoginStatus != LoginStatus.LoggedIn)
             {
                 return;
-            }            
+            }
             if (partyMemberUpdateMethod(0))
             {
                 player0.Text = _FFACEMonitored.PartyMember[0].Name;
                 player0.Enabled = true;
                 player0optionsButton.Enabled = true;
-                player0buffsButton.Enabled = true;                
+                player0buffsButton.Enabled = true;
             }
             else
             {
@@ -894,7 +894,7 @@ namespace CurePlease
                 player0.Enabled = false;
                 player0HP.Value = 0;
                 player0optionsButton.Enabled = false;
-                player0buffsButton.Enabled = false;                
+                player0buffsButton.Enabled = false;
             }
 
             if (partyMemberUpdateMethod(1))
@@ -980,173 +980,173 @@ namespace CurePlease
             {
                 player6.Text = _FFACEMonitored.PartyMember[6].Name;
                 player6.Enabled = true;
-                player6optionsButton.Enabled = true;                
+                player6optionsButton.Enabled = true;
             }
             else
             {
                 player6.Text = Resources.Form1_partyMembersUpdate_Tick_Inactive;
                 player6.Enabled = false;
                 player6HP.Value = 0;
-                player6optionsButton.Enabled = false;                
+                player6optionsButton.Enabled = false;
             }
 
             if (partyMemberUpdateMethod(7))
             {
                 player7.Text = _FFACEMonitored.PartyMember[7].Name;
                 player7.Enabled = true;
-                player7optionsButton.Enabled = true;                
+                player7optionsButton.Enabled = true;
             }
             else
             {
                 player7.Text = Resources.Form1_partyMembersUpdate_Tick_Inactive;
                 player7.Enabled = false;
                 player7HP.Value = 0;
-                player7optionsButton.Enabled = false;                
+                player7optionsButton.Enabled = false;
             }
 
             if (partyMemberUpdateMethod(8))
             {
                 player8.Text = _FFACEMonitored.PartyMember[8].Name;
                 player8.Enabled = true;
-                player8optionsButton.Enabled = true;                
+                player8optionsButton.Enabled = true;
             }
             else
             {
                 player8.Text = Resources.Form1_partyMembersUpdate_Tick_Inactive;
                 player8.Enabled = false;
                 player8HP.Value = 0;
-                player8optionsButton.Enabled = false;                
+                player8optionsButton.Enabled = false;
             }
 
             if (partyMemberUpdateMethod(9))
             {
                 player9.Text = _FFACEMonitored.PartyMember[9].Name;
                 player9.Enabled = true;
-                player9optionsButton.Enabled = true;                
+                player9optionsButton.Enabled = true;
             }
             else
             {
                 player9.Text = Resources.Form1_partyMembersUpdate_Tick_Inactive;
                 player9.Enabled = false;
                 player9HP.Value = 0;
-                player9optionsButton.Enabled = false;                
+                player9optionsButton.Enabled = false;
             }
 
             if (partyMemberUpdateMethod(10))
             {
                 player10.Text = _FFACEMonitored.PartyMember[10].Name;
                 player10.Enabled = true;
-                player10optionsButton.Enabled = true;                
+                player10optionsButton.Enabled = true;
             }
             else
             {
                 player10.Text = Resources.Form1_partyMembersUpdate_Tick_Inactive;
                 player10.Enabled = false;
                 player10HP.Value = 0;
-                player10optionsButton.Enabled = false;                
+                player10optionsButton.Enabled = false;
             }
 
             if (partyMemberUpdateMethod(11))
             {
                 player11.Text = _FFACEMonitored.PartyMember[11].Name;
                 player11.Enabled = true;
-                player11optionsButton.Enabled = true;                
+                player11optionsButton.Enabled = true;
             }
             else
             {
                 player11.Text = Resources.Form1_partyMembersUpdate_Tick_Inactive;
                 player11.Enabled = false;
                 player11HP.Value = 0;
-                player11optionsButton.Enabled = false;                
+                player11optionsButton.Enabled = false;
             }
 
             if (partyMemberUpdateMethod(12))
             {
                 player12.Text = _FFACEMonitored.PartyMember[12].Name;
                 player12.Enabled = true;
-                player12optionsButton.Enabled = true;                
+                player12optionsButton.Enabled = true;
             }
             else
             {
                 player12.Text = Resources.Form1_partyMembersUpdate_Tick_Inactive;
                 player12.Enabled = false;
                 player12HP.Value = 0;
-                player12optionsButton.Enabled = false;                
+                player12optionsButton.Enabled = false;
             }
 
             if (partyMemberUpdateMethod(13))
             {
                 player13.Text = _FFACEMonitored.PartyMember[13].Name;
                 player13.Enabled = true;
-                player13optionsButton.Enabled = true;                
+                player13optionsButton.Enabled = true;
             }
             else
             {
                 player13.Text = Resources.Form1_partyMembersUpdate_Tick_Inactive;
                 player13.Enabled = false;
                 player13HP.Value = 0;
-                player13optionsButton.Enabled = false;                
+                player13optionsButton.Enabled = false;
             }
 
             if (partyMemberUpdateMethod(14))
             {
                 player14.Text = _FFACEMonitored.PartyMember[14].Name;
                 player14.Enabled = true;
-                player14optionsButton.Enabled = true;                
+                player14optionsButton.Enabled = true;
             }
             else
             {
                 player14.Text = Resources.Form1_partyMembersUpdate_Tick_Inactive;
                 player14.Enabled = false;
                 player14HP.Value = 0;
-                player14optionsButton.Enabled = false;                
+                player14optionsButton.Enabled = false;
             }
 
             if (partyMemberUpdateMethod(15))
             {
                 player15.Text = _FFACEMonitored.PartyMember[15].Name;
                 player15.Enabled = true;
-                player15optionsButton.Enabled = true;                
+                player15optionsButton.Enabled = true;
             }
             else
             {
                 player15.Text = Resources.Form1_partyMembersUpdate_Tick_Inactive;
                 player15.Enabled = false;
                 player15HP.Value = 0;
-                player15optionsButton.Enabled = false;                
+                player15optionsButton.Enabled = false;
             }
 
             if (partyMemberUpdateMethod(16))
             {
                 player16.Text = _FFACEMonitored.PartyMember[16].Name;
                 player16.Enabled = true;
-                player16optionsButton.Enabled = true;                
+                player16optionsButton.Enabled = true;
             }
             else
             {
                 player16.Text = Resources.Form1_partyMembersUpdate_Tick_Inactive;
                 player16.Enabled = false;
                 player16HP.Value = 0;
-                player16optionsButton.Enabled = false;               
+                player16optionsButton.Enabled = false;
             }
 
             if (partyMemberUpdateMethod(17))
             {
                 player17.Text = _FFACEMonitored.PartyMember[17].Name;
                 player17.Enabled = true;
-                player17optionsButton.Enabled = true;                
+                player17optionsButton.Enabled = true;
             }
             else
             {
                 player17.Text = Resources.Form1_partyMembersUpdate_Tick_Inactive;
                 player17.Enabled = false;
                 player17HP.Value = 0;
-                player17optionsButton.Enabled = false;                
+                player17optionsButton.Enabled = false;
             }
-            
+
 
         }
-            #endregion
+        #endregion
 
         #region "== hpUpdates"
         private void hpUpdates_Tick(object sender, EventArgs e)
@@ -1414,7 +1414,7 @@ namespace CurePlease
             playerShell_V[partyMemberId] = DateTime.Now;
         }
         #endregion
-       
+
         #region "== actionTimer (LoginStatus)"
         private void actionTimer_Tick(object sender, EventArgs e)
         {
@@ -1433,10 +1433,10 @@ namespace CurePlease
                 // We zoned out so wait 15 seconds before continuing any type of action                
                 Thread.Sleep(15000);
             }
-        #endregion
+            #endregion
 
-        // Grab current time for calculations below
-        #region "== Calculate time since an Auto Spell was cast on particular player"
+            // Grab current time for calculations below
+            #region "== Calculate time since an Auto Spell was cast on particular player"
             currentTime = DateTime.Now;
             // Calculate time since haste was cast on particular player
             playerHasteSpan[0] = currentTime.Subtract(playerHaste[0]);
@@ -1638,7 +1638,7 @@ namespace CurePlease
             playerRefresh_IISpan[5] = currentTime.Subtract(playerRefresh_II[5]);
             #endregion
 
-        #region "== Set array values for GUI (Enabled) Checkboxes"
+            #region "== Set array values for GUI (Enabled) Checkboxes"
             // Set array values for GUI "Enabled" checkboxes
             CheckBox[] enabledBoxes = new CheckBox[18];
             enabledBoxes[0] = player0enabled;
@@ -1661,7 +1661,7 @@ namespace CurePlease
             enabledBoxes[17] = player17enabled;
             #endregion
 
-        #region "== Set array values for GUI (High Priority) Checkboxes"
+            #region "== Set array values for GUI (High Priority) Checkboxes"
             // Set array values for GUI "High Priority" checkboxes
             CheckBox[] highPriorityBoxes = new CheckBox[18];
             highPriorityBoxes[0] = player0priority;
@@ -1684,7 +1684,7 @@ namespace CurePlease
             highPriorityBoxes[17] = player17priority;
             #endregion
 
-        #region "== Job ability Divine Seal and Convert"
+            #region "== Job ability Divine Seal and Convert"
             if (Settings.Default.divineSealBox
                             && _FFACEPL.Player.MPPCurrent <= 11 // 
                             && _FFACEPL.Timer.GetAbilityRecast(AbilityList.Divine_Seal) == 0
@@ -1707,7 +1707,7 @@ namespace CurePlease
             }
             #endregion
 
-        #region "== Low MP Tell / MP OK Tell"
+            #region "== Low MP Tell / MP OK Tell"
             if (_FFACEPL.Player.MPCurrent <= (int)Settings.Default.mpMinCastValue && _FFACEPL.Player.MPCurrent != 0)
             {
                 if (Settings.Default.lowMPcheckBox && !islowmp)
@@ -1729,7 +1729,7 @@ namespace CurePlease
             }
             #endregion
 
-        #region "== PL stationary for Cures (Casting Possible)"
+            #region "== PL stationary for Cures (Casting Possible)"
             // Only perform actions if PL is stationary
             if ((_FFACEPL.Player.PosX == plX) && (_FFACEPL.Player.PosY == plY) && (_FFACEPL.Player.PosZ == plZ) && (_FFACEPL.Player.GetLoginStatus == LoginStatus.LoggedIn) && (!pauseActions) && ((_FFACEPL.Player.Status == Status.Standing) || (_FFACEPL.Player.Status == Status.Fighting)))
             {
@@ -1756,9 +1756,9 @@ namespace CurePlease
                         }
                     }
                 }
-            #endregion
+                #endregion
 
-        #region "== PL Debuff Removal with Spells or Items"
+                #region "== PL Debuff Removal with Spells or Items"
                 // PL and Monitored Player Debuff Removal
                 // Starting with PL
                 foreach (StatusEffect plEffect in _FFACEPL.Player.StatusEffects)
@@ -1826,7 +1826,7 @@ namespace CurePlease
                 }
                 #endregion
 
-        #region "== Monitored Player Debuff Removal"
+                #region "== Monitored Player Debuff Removal"
                 // Next, we check monitored player
                 if ((_FFACEPL.NPC.Distance(_FFACEMonitored.Player.ID) < 21) && (_FFACEPL.NPC.Distance(_FFACEMonitored.Player.ID) > 0) && (_FFACEMonitored.Player.HPCurrent > 0))
                 {
@@ -1884,7 +1884,7 @@ namespace CurePlease
                 // End Debuff Removal
                 #endregion
 
-        #region "== PL Auto Buffs"
+                #region "== PL Auto Buffs"
                 // PL Auto Buffs
                 if (!castingLock && _FFACEPL.Player.GetLoginStatus == LoginStatus.LoggedIn)
                 {
@@ -1935,8 +1935,8 @@ namespace CurePlease
                 // End PL Auto Buffs
                 #endregion
 
-        // Auto Casting
-        #region "== Auto Haste"
+                // Auto Casting
+                #region "== Auto Haste"
                 foreach (byte id in playerHpOrder)
                 {
                     if ((autoHasteEnabled[id]) && (_FFACEPL.Timer.GetSpellRecast(SpellList.Haste) == 0) && (_FFACEPL.Player.MPCurrent > Settings.Default.mpMinCastValue) && (!castingLock) && (castingPossible(id)))
@@ -1974,9 +1974,9 @@ namespace CurePlease
                             hastePlayer(id);
                         }
                     }
-                #endregion
+                    #endregion
 
-        #region "== Auto Haste II"
+                    #region "== Auto Haste II"
 
                     {
                         if ((autoHaste_IIEnabled[id]) && (_FFACEPL.Timer.GetSpellRecast(SpellList.Haste_II) == 0) && (_FFACEPL.Player.MPCurrent > Settings.Default.mpMinCastValue) && (!castingLock) && (castingPossible(id)))
@@ -2014,15 +2014,16 @@ namespace CurePlease
                                 haste_IIPlayer(id);
                             }
                         }
-                    #endregion
+                        #endregion
 
-        #region "== Auto Flurry "
+                        #region "== Auto Flurry "
 
                         {
                             if ((autoFlurryEnabled[id]) && (_FFACEPL.Timer.GetSpellRecast(SpellList.Flurry) == 0) && (_FFACEPL.Player.MPCurrent > Settings.Default.mpMinCastValue) && (!castingLock) && (castingPossible(id)))
                             {
                                 if ((_FFACEPL.Player.ID == _FFACEMonitored.PartyMember[id].ID))
                                 {
+                                    // TODO: Magic number - Find buff name.
                                     if (!plStatusCheck((StatusEffect)581))
                                     {
                                         FlurryPlayer(id);
@@ -2054,9 +2055,9 @@ namespace CurePlease
                                     FlurryPlayer(id);
                                 }
                             }
-                        #endregion
+                            #endregion
 
-        #region "== Auto Flurry II"
+                            #region "== Auto Flurry II"
 
                             {
                                 if ((autoFlurry_IIEnabled[id]) && (_FFACEPL.Timer.GetSpellRecast(SpellList.Flurry_II) == 0) && (_FFACEPL.Player.MPCurrent > Settings.Default.mpMinCastValue) && (!castingLock) && (castingPossible(id)))
@@ -2094,9 +2095,9 @@ namespace CurePlease
                                         Flurry_IIPlayer(id);
                                     }
                                 }
-                            #endregion
+                                #endregion
 
-        #region "== Auto Shell IV & V"
+                                #region "== Auto Shell IV & V"
                                 if ((autoShell_IVEnabled[id]) && (_FFACEPL.Timer.GetSpellRecast(SpellList.Shell_IV) == 0) && (_FFACEPL.Player.MPCurrent > Settings.Default.mpMinCastValue) && (!castingLock) && (castingPossible(id)))
                                 {
                                     if ((_FFACEPL.Player.ID == _FFACEMonitored.PartyMember[id].ID))
@@ -2161,7 +2162,7 @@ namespace CurePlease
                                 }
                                 #endregion
 
-        #region "== Auto Protect IV & V"
+                                #region "== Auto Protect IV & V"
                                 if ((autoProtect_IVEnabled[id]) && (_FFACEPL.Timer.GetSpellRecast(SpellList.Protect_IV) == 0) && (_FFACEPL.Player.MPCurrent > Settings.Default.mpMinCastValue) && (!castingLock) && (castingPossible(id)))
                                 {
                                     if ((_FFACEPL.Player.ID == _FFACEMonitored.PartyMember[id].ID))
@@ -2226,7 +2227,7 @@ namespace CurePlease
                                 }
                                 #endregion
 
-        #region "== Auto Phalanx II"
+                                #region "== Auto Phalanx II"
                                 if ((autoPhalanx_IIEnabled[id]) && (_FFACEPL.Timer.GetSpellRecast(SpellList.Phalanx_II) == 0) && (_FFACEPL.Player.MPCurrent > Settings.Default.mpMinCastValue) && (!castingLock) && (castingPossible(id)))
                                 {
                                     if ((_FFACEPL.Player.ID == _FFACEMonitored.PartyMember[id].ID))
@@ -2250,7 +2251,7 @@ namespace CurePlease
                                 }
                                 #endregion
 
-        #region "== Auto Regen IV & V"
+                                #region "== Auto Regen IV & V"
                                 if ((autoRegen_IVEnabled[id]) && (_FFACEPL.Timer.GetSpellRecast(SpellList.Regen_IV) == 0) && (_FFACEPL.Player.MPCurrent > Settings.Default.mpMinCastValue) && (!castingLock) && (castingPossible(id)))
                                 {
                                     if ((_FFACEPL.Player.ID == _FFACEMonitored.PartyMember[id].ID))
@@ -2319,7 +2320,7 @@ namespace CurePlease
                                 }
                                 #endregion
 
-        #region "== Auto Refresh & II"
+                                #region "== Auto Refresh & II"
                                 if ((autoRefreshEnabled[id]) && (_FFACEPL.Timer.GetSpellRecast(SpellList.Refresh) == 0) && (_FFACEPL.Player.MPCurrent > Settings.Default.mpMinCastValue) && (!castingLock) && (castingPossible(id)))
                                 {
                                     if ((_FFACEPL.Player.ID == _FFACEMonitored.PartyMember[id].ID))
@@ -2367,11 +2368,11 @@ namespace CurePlease
                                     }
                                 }
                             }
-                                #endregion
+                            #endregion
 
-        
-        // so PL job abilities are in order
-        #region "== All other Job Abilities"
+
+                            // so PL job abilities are in order
+                            #region "== All other Job Abilities"
                             if (!castingLock && !plStatusCheck(StatusEffect.Amnesia))
                             {
                                 if ((Settings.Default.afflatusSolice) && (!plStatusCheck(StatusEffect.Afflatus_Solace)) && (_FFACEPL.Timer.GetAbilityRecast(AbilityList.Afflatus_Solace) == 0))
@@ -2415,10 +2416,10 @@ namespace CurePlease
                 }
             }
         }
-                #endregion
+        #endregion
 
         #region "== Get Shellra & Protectra level"
-        private string GetShellraLevel (decimal p)
+        private string GetShellraLevel(decimal p)
         {
             switch ((int)p)
             {
@@ -2437,7 +2438,7 @@ namespace CurePlease
             }
         }
 
-        private string GetProtectraLevel (decimal p)
+        private string GetProtectraLevel(decimal p)
         {
             switch ((int)p)
             {
@@ -2479,7 +2480,7 @@ namespace CurePlease
             autoShellVToolStripMenuItem.Checked = autoShell_VEnabled[0];
             playerOptions.Show(party0, new Point(0, 0));
         }
-                        
+
         private void player1optionsButton_Click(object sender, EventArgs e)
         {
             playerOptionsSelected = 1;
@@ -2735,7 +2736,7 @@ namespace CurePlease
         {
             autoOptionsSelected = 1;
             autoPhalanxIIToolStripMenuItem1.Checked = autoPhalanx_IIEnabled[1];
-            autoRegenIVToolStripMenuItem1.Checked = autoRegen_IVEnabled[1];            
+            autoRegenIVToolStripMenuItem1.Checked = autoRegen_IVEnabled[1];
             autoRefreshToolStripMenuItem1.Checked = autoRefreshEnabled[1];
             autoRegenVToolStripMenuItem.Checked = autoRegen_VEnabled[1];
             autoRefreshIIToolStripMenuItem.Checked = autoRefresh_IIEnabled[1];
@@ -2746,7 +2747,7 @@ namespace CurePlease
         {
             autoOptionsSelected = 2;
             autoPhalanxIIToolStripMenuItem1.Checked = autoPhalanx_IIEnabled[2];
-            autoRegenIVToolStripMenuItem1.Checked = autoRegen_IVEnabled[2];            
+            autoRegenIVToolStripMenuItem1.Checked = autoRegen_IVEnabled[2];
             autoRefreshToolStripMenuItem1.Checked = autoRefreshEnabled[2];
             autoRegenVToolStripMenuItem.Checked = autoRegen_VEnabled[2];
             autoRefreshIIToolStripMenuItem.Checked = autoRefresh_IIEnabled[2];
@@ -2757,7 +2758,7 @@ namespace CurePlease
         {
             autoOptionsSelected = 3;
             autoPhalanxIIToolStripMenuItem1.Checked = autoPhalanx_IIEnabled[3];
-            autoRegenIVToolStripMenuItem1.Checked = autoRegen_IVEnabled[3];            
+            autoRegenIVToolStripMenuItem1.Checked = autoRegen_IVEnabled[3];
             autoRefreshToolStripMenuItem1.Checked = autoRefreshEnabled[3];
             autoRegenVToolStripMenuItem.Checked = autoRegen_VEnabled[3];
             autoRefreshIIToolStripMenuItem.Checked = autoRefresh_IIEnabled[3];
@@ -2768,7 +2769,7 @@ namespace CurePlease
         {
             autoOptionsSelected = 4;
             autoPhalanxIIToolStripMenuItem1.Checked = autoPhalanx_IIEnabled[4];
-            autoRegenIVToolStripMenuItem1.Checked = autoRegen_IVEnabled[4];            
+            autoRegenIVToolStripMenuItem1.Checked = autoRegen_IVEnabled[4];
             autoRefreshToolStripMenuItem1.Checked = autoRefreshEnabled[4];
             autoRegenVToolStripMenuItem.Checked = autoRegen_VEnabled[4];
             autoRefreshIIToolStripMenuItem.Checked = autoRefresh_IIEnabled[4];
@@ -2779,7 +2780,7 @@ namespace CurePlease
         {
             autoOptionsSelected = 5;
             autoPhalanxIIToolStripMenuItem1.Checked = autoPhalanx_IIEnabled[5];
-            autoRegenIVToolStripMenuItem1.Checked = autoRegen_IVEnabled[5];            
+            autoRegenIVToolStripMenuItem1.Checked = autoRegen_IVEnabled[5];
             autoRefreshToolStripMenuItem1.Checked = autoRefreshEnabled[5];
             autoRegenVToolStripMenuItem.Checked = autoRegen_VEnabled[5];
             autoRefreshIIToolStripMenuItem.Checked = autoRefresh_IIEnabled[5];
@@ -2915,7 +2916,7 @@ namespace CurePlease
             {
                 return;
             }
-            
+
             castingLockLabel.Text = "Casting is UNLOCKED!";
             castingLock = false;
             actionTimer.Enabled = true;
@@ -2986,12 +2987,12 @@ namespace CurePlease
         {
             autoHasteEnabled[autoOptionsSelected] = !autoHasteEnabled[autoOptionsSelected];
         }
-        
+
         private void autoPhalanxIIToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             autoPhalanx_IIEnabled[autoOptionsSelected] = !autoPhalanx_IIEnabled[autoOptionsSelected];
         }
-        
+
         private void autoRegenIVToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             autoRegen_IVEnabled[autoOptionsSelected] = !autoRegen_IVEnabled[autoOptionsSelected];
@@ -3020,7 +3021,7 @@ namespace CurePlease
         }
         private void followToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _FFACEPL.Windower.SendString("/follow " + _FFACEMonitored.PartyMember[playerOptionsSelected].Name);            
+            _FFACEPL.Windower.SendString("/follow " + _FFACEMonitored.PartyMember[playerOptionsSelected].Name);
             CastLockMethod();
         }
         private void phalanxIIToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3057,14 +3058,14 @@ namespace CurePlease
             _FFACEPL.Windower.SendString("/ma \"Regen II\" " + _FFACEMonitored.PartyMember[playerOptionsSelected].Name);
             CastLockMethod();
         }
-        
-        private void regenIIIToolStripMenuItem_Click (object sender, EventArgs e)
+
+        private void regenIIIToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _FFACEPL.Windower.SendString("/ma \"Regen III\" " + _FFACEMonitored.PartyMember[playerOptionsSelected].Name);
             CastLockMethod();
         }
 
-        private void regenIVToolStripMenuItem_Click (object sender, EventArgs e)
+        private void regenIVToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _FFACEPL.Windower.SendString("/ma \"Regen IV\" " + _FFACEMonitored.PartyMember[playerOptionsSelected].Name);
             CastLockMethod();
@@ -3146,7 +3147,7 @@ namespace CurePlease
         {
             _FFACEPL.Windower.SendString("/ma \"Shell V\" " + _FFACEMonitored.PartyMember[playerOptionsSelected].Name);
             CastLockMethod();
-        }        
+        }
         #endregion
 
         #region "== Pause Button"
@@ -3157,12 +3158,12 @@ namespace CurePlease
             if (!pauseActions)
             {
                 pauseButton.Text = "Pause";
-                pauseButton.ForeColor = Color.Black; 
+                pauseButton.ForeColor = Color.Black;
             }
-            else if (pauseActions) 
-            {                
+            else if (pauseActions)
+            {
                 pauseButton.Text = "Paused!";
-                pauseButton.ForeColor = Color.Red;                
+                pauseButton.ForeColor = Color.Red;
             }
         }
         #endregion
@@ -3172,7 +3173,7 @@ namespace CurePlease
         {
             if (_FFACEMonitored == null)
             {
-                MessageBox.Show("Attach to process before pressing this button","Error");
+                MessageBox.Show("Attach to process before pressing this button", "Error");
                 return;
             }
             var items = _FFACEMonitored.PartyMember.Keys.OrderBy(k => _FFACEMonitored.PartyMember[k].HPPCurrent);
@@ -3225,19 +3226,19 @@ namespace CurePlease
         #region "== About Tab ToolStripMenu Item"
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Form3().Show();            
+            new Form3().Show();
         }
         #endregion
 
         #region "== Transparency (Opacity Value)"
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            Opacity = trackBar1.Value * 0.01; 
+            Opacity = trackBar1.Value * 0.01;
         }
         #endregion
 
         #region "== Shellra & Protectra Recast Level"
-        private bool CheckShellraLevelRecast ()
+        private bool CheckShellraLevelRecast()
         {
             switch ((int)Settings.Default.plShellralevel)
             {
@@ -3256,7 +3257,7 @@ namespace CurePlease
             }
         }
 
-        private bool CheckProtectraLevelRecast ()
+        private bool CheckProtectraLevelRecast()
         {
             switch ((int)Settings.Default.plProtectralevel)
             {
@@ -3286,11 +3287,20 @@ namespace CurePlease
 
     public enum AbilityList
     {
-        Divine_Seal
+        Afflatus_Misery,
+        Afflatus_Solace,
+        Composure,
+        Convert,
+        Divine_Seal,
+        Light_Arts,
+        Stratagems,
+        Sublimation
     }
 
     public enum Status
     {
+        Fighting,
+        Standing
     }
 
     public enum LoginStatus
@@ -3301,40 +3311,130 @@ namespace CurePlease
 
     internal enum SpellList
     {
+        Blindna,
+        Blink,
+        Cure,
+        Cure_II,
+        Cure_III,
+        Cure_IV,
+        Cure_V,
+        Cure_VI,
+        Cursna,
+        Erase,
+        Flurry,
+        Flurry_II,
+        Haste,
+        Haste_II,
+        Paralyna,
+        Phalanx_II,
+        Poisona,
+        Protect_IV,
+        Protect_V,
         Protectra,
         Protectra_II,
         Protectra_III,
         Protectra_IV,
         Protectra_V,
+        Refresh,
+        Refresh_II,
+        Regen_IV,
+        Regen_V,
+        Reraise,
+        Reraise_II,
+        Reraise_III,
+        Shell_IV,
+        Shell_V,
         Shellra,
         Shellra_II,
         Shellra_III,
         Shellra_IV,
         Shellra_V,
-        Cure_VI,
-        Cure_V,
-        Cure_IV,
-        Cure_III,
-        Cure_II,
-        Cure
+        Silena,
+        Stona,
+        Stoneskin,
+        Viruna
     }
 
     public enum StatusEffect
     {
+        Accuracy_Down,
+        Addendum_White,
+        Addle,
+        Afflatus_Misery,
+        Afflatus_Solace,
+        AGI_Down,
+        Amnesia,
+        Attack_Down,
+        Bane,
+        Bind,
+        Bio,
+        Blindness,
+        Blink,
+        Burn,
+        Choke,
+        CHR_Down,
+        Composure,
+        Curse,
+        Curse2,
+        Defense_Down,
+        DEX_Down,
+        Dia,
+        Disease,
+        Doom,
+        Drown,
+        Elegy,
+        Evasion_Down,
+        Flash,
+        Frost,
+        Haste,
+        Helix,
+        INT_Down,
+        Light_Arts,
+        Magic_Acc_Dow,
+        Magic_Acc_Down,
+        Magic_Atk_Dow,
+        Magic_Atk_Down,
+        Max_HP_Down,
+        Max_MP_Down,
+        Max_TP_Down,
         Medicine,
-        Weakness
+        MND_Down,
+        Paralysis,
+        Petrification,
+        Phalanx,
+        Plague,
+        Poison,
+        Protect,
+        Rasp,
+        Refresh,
+        Regen,
+        Requiem,
+        Reraise,
+        Shell,
+        Shock,
+        Silence,
+        Sleep,
+        Sleep2,
+        Slow,
+        Stoneskin,
+        STR_Down,
+        Sublimation_Activated,
+        Sublimation_Complete,
+        Threnody,
+        VIT_Down,
+        Weakness,
+        Weight
     }
 
     public class FFACE
     {
-        private int selectedItem;
-        public NPCTools NPC { get; set; }
+        private int processId;        
 
-        public FFACE(int selectedItem)
+        public FFACE(int processId)
         {
-            this.selectedItem = selectedItem;
+            this.processId = processId;
         }
-
+        public NPCTools NPC { get; set; }
         public PlayerTools Player { get; set; }
         public TimerTools Timer { get; set; }
         public Dictionary<byte, PartyMemberTools> PartyMember { get; set; }
@@ -3356,6 +3456,9 @@ namespace CurePlease
 
         public class PlayerTools
         {
+            public int HPMax { get; set; }
+            public int MPMax { get; set; }
+            public int HPCurrent { get; set; }
             public int MPCurrent { get; set; }
             public int ID { get; set; }
             public int MPPCurrent { get; set; }
@@ -3367,6 +3470,20 @@ namespace CurePlease
             public float PosZ { get; set; }
             public Status Status { get; set; }
             public IEnumerable<StatusEffect> StatusEffects { get; set; }
+            public int CastPercentEx { get; set; }
+        }
+
+        public class ParseResources
+        {
+            public static ushort GetItemId(string plSilenceItemString)
+            {
+                throw new NotImplementedException();
+            }
+
+            public static string GetItemName(int i)
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 
@@ -3396,6 +3513,16 @@ namespace CurePlease
         {
             throw new NotImplementedException();
         }
+
+        public int GetInventoryItemCount(ushort getItemId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetTempItemCount(ushort getItemId)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public enum Zone
@@ -3404,9 +3531,9 @@ namespace CurePlease
 
     public class PartyMemberTools
     {
-        public int HPPCurrent;
-        public int HPCurrent;
-        public int ID;
+        public int HPPCurrent { get; set; }
+        public int HPCurrent { get; set; }
+        public int ID { get; set; }
         public bool Active { get; set; }
         public Zone Zone { get; set; }
         public string Name { get; set; }
