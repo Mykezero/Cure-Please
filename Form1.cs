@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Collections.Generic;
 using CurePlease.Properties;
+using EliteMMO.API;
 
 namespace CurePlease
 {
@@ -1766,7 +1767,7 @@ namespace CurePlease
                     if ((plEffect == StatusEffect.Silence) && (Settings.Default.plSilenceItemEnabled))
                     {
                         // Check to make sure we have echo drops
-                        if (_FFACEPL.Item.GetInventoryItemCount((ushort)FFACE.ParseResources.GetItemId(Settings.Default.plSilenceItemString)) > 0 || _FFACEPL.Item.GetTempItemCount((ushort)FFACE.ParseResources.GetItemId(Settings.Default.plSilenceItemString)) > 0)
+                        if (_FFACEPL.Item.GetInventoryItemCount(_FFACEPL.ParserTools.GetItemId(Settings.Default.plSilenceItemString)) > 0 || _FFACEPL.Item.GetTempItemCount((ushort)_FFACEPL.ParserTools.GetItemId(Settings.Default.plSilenceItemString)) > 0)
                         {
                             _FFACEPL.Windower.SendString(string.Format("/item \"{0}\" <me>", Settings.Default.plSilenceItemString));
                             Thread.Sleep(2000);
@@ -1775,7 +1776,7 @@ namespace CurePlease
                     if ((plEffect == StatusEffect.Doom && Settings.Default.plDoomEnabled) /* Add more options from UI HERE*/)
                     {
                         // Check to make sure we have holy water
-                        if (_FFACEPL.Item.GetInventoryItemCount((ushort)FFACE.ParseResources.GetItemId(Settings.Default.PLDoomitem)) > 0 || _FFACEPL.Item.GetTempItemCount((ushort)FFACE.ParseResources.GetItemId(Settings.Default.PLDoomitem)) > 0)
+                        if (_FFACEPL.Item.GetInventoryItemCount((ushort)_FFACEPL.ParserTools.GetItemId(Settings.Default.PLDoomitem)) > 0 || _FFACEPL.Item.GetTempItemCount((ushort)_FFACEPL.ParserTools.GetItemId(Settings.Default.PLDoomitem)) > 0)
                         {
                             _FFACEPL.Windower.SendString(string.Format("/item \"{0}\" <me>", Settings.Default.PLDoomitem));
                             Thread.Sleep(2000);
@@ -3428,29 +3429,41 @@ namespace CurePlease
 
     public class FFACE
     {
-        private int processId;        
+        private readonly EliteAPI _eliteApi;
 
         public FFACE(int processId)
         {
-            this.processId = processId;
+            _eliteApi = new EliteAPI(processId);
         }
+
         public NPCTools NPC { get; set; }
         public PlayerTools Player { get; set; }
         public TimerTools Timer { get; set; }
         public Dictionary<byte, PartyMemberTools> PartyMember { get; set; }
         public ItemTools Item { get; set; }
         public WindowerTools Windower { get; set; }
+        public ParseResources ParserTools { get; set; }
 
         public class TimerTools
         {
+            private readonly EliteAPI _eliteApi;
+
+            public TimerTools(EliteAPI eliteApi)
+            {
+                _eliteApi = eliteApi;
+            }
+
             internal int GetSpellRecast(SpellList protectra)
             {
-                throw new NotImplementedException();
+                return _eliteApi.Recast.GetSpellRecast((int)protectra);
             }
 
             public int GetAbilityRecast(AbilityList abilityList)
             {
-                throw new NotImplementedException();
+                var ids = _eliteApi.Recast.GetAbilityIds();
+                var ability = _eliteApi.Resources.GetAbility((uint)abilityList);
+                var idx = ids.IndexOf(ability.TimerID);
+                return _eliteApi.Recast.GetAbilityRecast(idx);
             }
         }
 
@@ -3475,38 +3488,66 @@ namespace CurePlease
 
         public class ParseResources
         {
-            public static ushort GetItemId(string plSilenceItemString)
+            private readonly EliteAPI _eliteApi;
+
+            public ParseResources(EliteAPI eliteApi)
             {
-                throw new NotImplementedException();
+                _eliteApi = eliteApi;
             }
 
-            public static string GetItemName(int i)
+            public ushort GetItemId(string plSilenceItemString)
             {
-                throw new NotImplementedException();
+                return _eliteApi.Resources.GetItem(plSilenceItemString, 0).ResourceID;
+            }
+
+            public string GetItemName(uint i)
+            {
+                return _eliteApi.Resources.GetItem(i).Name.FirstOrDefault() ?? "";
             }
         }
     }
 
     public class NPCTools
     {
+        private readonly EliteAPI _eliteApi;
+
+        public NPCTools(EliteAPI eliteApi)
+        {
+            _eliteApi = eliteApi;
+        }
+
         public float Distance(int id)
         {
-            throw new NotImplementedException();
+            return _eliteApi.Entity.GetEntity(id).Distance;
         }
     }
 
     public class WindowerTools
     {
+        private readonly EliteAPI _eliteApi;
+
+        public WindowerTools(EliteAPI eliteApi)
+        {
+            _eliteApi = eliteApi;
+        }
+
         public void SendString(string p0)
         {
-            throw new NotImplementedException();
+            _eliteApi.ThirdParty.SendString(p0);
         }
     }
 
     public class ItemTools
     {
-        public int SelectedItemID { get; set; }
-        public string SelectedItemName { get; set; }
+        private readonly EliteAPI _eliteApi;
+
+        public ItemTools(EliteAPI eliteApi)
+        {
+            _eliteApi = eliteApi;
+        }
+
+        public int SelectedItemID => (int)_eliteApi.Inventory.SelectedItemId;
+        public string SelectedItemName => _eliteApi.Inventory.SelectedItemName;
         public int TemporaryCount { get; set; }
 
         public int GetTempItemIDByIndex(byte p0)
@@ -3531,11 +3572,20 @@ namespace CurePlease
 
     public class PartyMemberTools
     {
-        public int HPPCurrent { get; set; }
-        public int HPCurrent { get; set; }
-        public int ID { get; set; }
+        private readonly EliteAPI _eliteApi;
+        private readonly byte _index;
+
+        public PartyMemberTools(byte index, EliteAPI eliteApi)
+        {
+            _index = index;
+            _eliteApi = eliteApi;
+        }
+
         public bool Active { get; set; }
-        public Zone Zone { get; set; }
-        public string Name { get; set; }
+        public int HPPCurrent => _eliteApi.Party.GetPartyMember(_index).CurrentHPP;
+        public int HPCurrent => (int)_eliteApi.Party.GetPartyMember(_index).CurrentHP;
+        public int ID => (int)_eliteApi.Party.GetPartyMember(_index).ID;        
+        public Zone Zone => (Zone)_eliteApi.Party.GetPartyMember(_index).Zone;
+        public string Name => _eliteApi.Party.GetPartyMember(_index).Name;
     }
 }
